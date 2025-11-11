@@ -85,8 +85,13 @@ fun PersonalInformationSection(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(text = "Avatar")
-        Text(text = "Jennifer Doe", color = Color(0xFF3ddc84))
-        Text(text = "Title")
+        Text(
+            text = "Jennifer Doe"
+        )
+        Text(
+            text = "Android Developer Extraordinaire",
+            color = Color(0xFF3ddc84)
+        )
     }
 }
 
