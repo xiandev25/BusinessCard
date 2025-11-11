@@ -4,11 +4,18 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.businesscard.ui.theme.BusinessCardTheme
 
@@ -18,7 +25,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             BusinessCardTheme {
-                Surface(modifier = Modifier.fillMaxSize()) {
+                Surface {
                     BusinessCardApp()
                 }
             }
@@ -28,29 +35,59 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun BusinessCardApp(modifier: Modifier = Modifier) {
-    Column {
-        PersonalInformationSection()
-        ContactSection()
+    Column(
+        modifier = modifier
+            .fillMaxSize(),
+    ) {
+        PersonalInformationSection(
+            modifier = Modifier
+                .weight(weight = 4F)
+        )
+        ContactSection(
+            modifier = Modifier
+                .weight(weight = 1F)
+        )
     }
 }
 
 @Composable
-fun ContactSection() {
-    Column {
-        ContactItem()
-        ContactItem()
-        ContactItem()
+fun ContactSection(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .background(color = Color.Magenta),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Column {
+            ContactItem(content = "Yo")
+            ContactItem(content = "Here is your contact")
+            ContactItem(content = "Catch  you later")
+        }
     }
 }
 
 @Composable
-fun ContactItem() {
-    TODO("Not yet implemented")
+fun ContactItem(content: String, modifier: Modifier = Modifier) {
+    Text(
+        text = content,
+        modifier = modifier
+    )
 }
 
 @Composable
-fun PersonalInformationSection() {
-    TODO("Not yet implemented")
+fun PersonalInformationSection(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier
+            .fillMaxWidth()
+            .background(color = Color.Yellow),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Text(text = "Avatar")
+        Text(text = "Jennifer Doe", color = Color(0xFF3ddc84))
+        Text(text = "Title")
+    }
 }
 
 @Preview(showBackground = true)
