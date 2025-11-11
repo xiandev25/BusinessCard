@@ -36,6 +36,15 @@ fun BusinessCardApp(modifier: Modifier = Modifier) {
 
 @Composable
 fun ContactSection() {
+    Column {
+        ContactItem()
+        ContactItem()
+        ContactItem()
+    }
+}
+
+@Composable
+fun ContactItem() {
     TODO("Not yet implemented")
 }
 
