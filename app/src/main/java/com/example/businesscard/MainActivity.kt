@@ -103,7 +103,7 @@ fun PersonalInformationSection(modifier: Modifier = Modifier) {
         )
         Text(
             text = "Android Developer Extraordinaire",
-            color = Color(0xFF3ddc84),
+            color = Color(0xFF218D50),
             fontSize = 12.sp,
             fontWeight = FontWeight.Bold
         )
