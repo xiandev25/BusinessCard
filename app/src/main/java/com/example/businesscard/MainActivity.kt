@@ -44,7 +44,8 @@ fun BusinessCardApp(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
             .fillMaxSize()
-            .systemBarsPadding(),
+            .systemBarsPadding()
+            .background(color = Color(0xFFA6D0BA)),
     ) {
         PersonalInformationSection(
             modifier = Modifier
@@ -61,8 +62,7 @@ fun BusinessCardApp(modifier: Modifier = Modifier) {
 fun ContactSection(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
-            .fillMaxWidth()
-            .background(color = Color.Magenta),
+            .fillMaxWidth(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
@@ -86,8 +86,7 @@ fun ContactItem(content: String, modifier: Modifier = Modifier) {
 fun PersonalInformationSection(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
-            .fillMaxWidth()
-            .background(color = Color.Yellow),
+            .fillMaxWidth(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
