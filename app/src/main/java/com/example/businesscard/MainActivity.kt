@@ -8,10 +8,18 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.systemBarsPadding
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Email
+import androidx.compose.material.icons.rounded.Phone
+import androidx.compose.material.icons.rounded.Share
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -44,12 +52,12 @@ fun BusinessCardApp(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
             .fillMaxSize()
-            .systemBarsPadding()
+            //.systemBarsPadding()
             .background(color = Color(0xFFA6D0BA)),
     ) {
         PersonalInformationSection(
             modifier = Modifier
-                .weight(weight = 4F)
+                .weight(weight = 3F)
         )
         ContactSection(
             modifier = Modifier
@@ -67,19 +75,60 @@ fun ContactSection(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Column {
-            ContactItem(content = "Yo")
-            ContactItem(content = "Here is your contact")
-            ContactItem(content = "Catch  you later")
+            Row {
+                Icon(
+                    imageVector = Icons.Rounded.Phone,
+                    contentDescription = null,
+                    tint = Color(0xFF218D50),
+                )
+                Spacer(
+                    modifier = Modifier
+                        .size(size = 10.dp)
+                )
+                Text(
+                    text = "+11 (123) 444 555 666",
+                    fontSize = 12.sp
+                )
+            }
+            Row (
+                modifier = Modifier
+                    .padding(top = 10.dp, bottom = 10.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Rounded.Share,
+                    contentDescription = null,
+                    tint = Color(0xFF218D50),
+                )
+                Spacer(
+                    modifier = Modifier
+                        .size(size = 10.dp)
+                )
+                Text(
+                    text = "@AndroidDev",
+                    fontSize = 12.sp
+                )
+            }
+            Row {
+                Icon(
+                    imageVector = Icons.Rounded.Email,
+                    contentDescription = null,
+                    tint = Color(0xFF218D50),
+                )
+                Spacer(
+                    modifier = Modifier
+                        .size(size = 10.dp)
+                )
+                Text(
+                    text = "jen.doe@android.com",
+                    fontSize = 12.sp
+                )
+            }
         }
     }
 }
 
 @Composable
-fun ContactItem(content: String, modifier: Modifier = Modifier) {
-    Text(
-        text = content,
-        modifier = modifier
-    )
+fun ContactItem() {
 }
 
 @Composable
