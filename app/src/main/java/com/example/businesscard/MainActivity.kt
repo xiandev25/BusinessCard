@@ -26,6 +26,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -75,60 +76,54 @@ fun ContactSection(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Column {
-            Row {
-                Icon(
-                    imageVector = Icons.Rounded.Phone,
-                    contentDescription = null,
-                    tint = Color(0xFF218D50),
-                )
-                Spacer(
-                    modifier = Modifier
-                        .size(size = 10.dp)
-                )
-                Text(
-                    text = "+11 (123) 444 555 666",
-                    fontSize = 12.sp
-                )
-            }
-            Row (
+            ContactItem(
+                itemIcon = Icons.Rounded.Phone,
+                itemContent = "+11 (123) 444 555 666",
+                itemContentDescription = null
+            )
+            ContactItem(
+                itemIcon = Icons.Rounded.Share,
+                itemContent = "@AndroidDev",
+                itemContentDescription = null,
                 modifier = Modifier
-                    .padding(top = 10.dp, bottom = 10.dp)
-            ) {
-                Icon(
-                    imageVector = Icons.Rounded.Share,
-                    contentDescription = null,
-                    tint = Color(0xFF218D50),
-                )
-                Spacer(
-                    modifier = Modifier
-                        .size(size = 10.dp)
-                )
-                Text(
-                    text = "@AndroidDev",
-                    fontSize = 12.sp
-                )
-            }
-            Row {
-                Icon(
-                    imageVector = Icons.Rounded.Email,
-                    contentDescription = null,
-                    tint = Color(0xFF218D50),
-                )
-                Spacer(
-                    modifier = Modifier
-                        .size(size = 10.dp)
-                )
-                Text(
-                    text = "jen.doe@android.com",
-                    fontSize = 12.sp
-                )
-            }
+                    .padding(
+                        top = 12.dp,
+                        bottom = 12.dp
+                    )
+            )
+            ContactItem(
+                itemIcon = Icons.Rounded.Email,
+                itemContent = "jen.doe@android.com",
+                itemContentDescription = null
+            )
         }
     }
 }
 
 @Composable
-fun ContactItem() {
+fun ContactItem(
+    itemIcon: ImageVector,
+    itemContent: String,
+    itemContentDescription: String?,
+    modifier: Modifier = Modifier
+) {
+    Row(
+        modifier = modifier
+    ) {
+        Icon(
+            imageVector = itemIcon,
+            contentDescription = itemContentDescription,
+            tint = Color(color = 0xFF218D50),
+        )
+        Spacer(
+            modifier = Modifier
+                .size(size = 10.dp)
+        )
+        Text(
+            text = itemContent,
+            fontSize = 12.sp
+        )
+    }
 }
 
 @Composable
